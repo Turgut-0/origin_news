@@ -36,8 +36,8 @@ class Category_News {
   List<Article_model> article = [];
 
   Future<void> getNews(String category) async {
-    var url =
-        'https://newsapi.org/v2/top-headlines?country=tr&category=${category}&apiKey=0684c92663814e6e9132cc4ee781d569';
+    /*var url =
+        'https://newsapi.org/v2/top-headlines?country=tr&category=${category}&apiKey=0684c92663814e6e9132cc4ee781d569';*/
 
 
     var  apiKey='0684c92663814e6e9132cc4ee781d569';

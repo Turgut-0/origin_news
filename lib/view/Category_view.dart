@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:origin_news/Helper/News.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../models/article_model.dart';
-//import 'articles_viewver.dart';
+
 
 class Category_View extends StatefulWidget {
   final String category,clonName ;

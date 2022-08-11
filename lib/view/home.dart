@@ -1,11 +1,14 @@
+
 import 'package:flutter/material.dart';
 import 'package:origin_news/Helper/News.dart';
 import 'package:origin_news/Helper/data.dart';
-//import 'package:origin_news/view/articles_viewver.dart';
+
 import 'package:url_launcher/url_launcher.dart';
+
 import '../models/Category_model.dart';
 import '../models/article_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+
 
 import 'Category_view.dart';
 
@@ -117,6 +120,9 @@ class CategoryTile extends StatelessWidget {
 
   CategoryTile(this.networkImage, this.categoryName, this.clonName);
 
+
+
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -133,11 +139,18 @@ class CategoryTile extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(6),
-                child: Image.network(
+                child: /*Image.network(
                   networkImage,
                   width: 100,
                   fit: BoxFit.cover,
+                ),*/CachedNetworkImage(
+                  imageUrl: networkImage,
+                  width: 100,
+                  fit: BoxFit.cover,
+                  placeholder: (context, url) => CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
+
               ),
               Container(
                 alignment: Alignment.center,
@@ -166,6 +179,7 @@ class CategoryTile extends StatelessWidget {
 class Blogtile extends StatelessWidget {
   final String urltoImage, title, desc, url;
 
+
   Blogtile(this.urltoImage, this.title, this.desc, this.url);
 
   @override
@@ -184,8 +198,13 @@ class Blogtile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //SizedBox(height: 5,),
-              Image.network(
+              /*Image.network(
                 urltoImage,
+              ),*/
+              CachedNetworkImage(
+                imageUrl: urltoImage,
+                placeholder: (context, url) => CircularProgressIndicator(),
+                errorWidget: (context, url, error) => Icon(Icons.error),
               ),
               SizedBox(
                 height: 5,
@@ -211,3 +230,5 @@ class Blogtile extends StatelessWidget {
     );
   }
 } // 新闻主题卡片
+
+
