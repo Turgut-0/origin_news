@@ -1,3 +1,4 @@
+/*
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -14,7 +15,7 @@ class Article_Views extends StatefulWidget {
 
 class _Article_ViewsState extends State<Article_Views> {
   final Completer<WebViewController> _controller =
-  Completer<WebViewController>();
+ // Completer<WebViewController>();
 
   @override
   Widget build(BuildContext context) {
@@ -38,3 +39,4 @@ class _Article_ViewsState extends State<Article_Views> {
     );
   }
 }
+*/

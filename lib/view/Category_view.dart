@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:origin_news/Helper/News.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import '../models/article_model.dart';
-import 'articles_viewver.dart';
+//import 'articles_viewver.dart';
 
 class Category_View extends StatefulWidget {
   final String category,clonName ;
@@ -107,10 +107,11 @@ class Blogtile extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(top: 10),
       child: GestureDetector(
-        onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
+        onTap: () async {
+          /*Navigator.push(context, MaterialPageRoute(builder: (context) {
             return Article_Views(url);
-          }));
+          }));*/
+          await launch(url);
         },
         child: Card(
           child: Column(

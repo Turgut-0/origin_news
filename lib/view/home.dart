@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:origin_news/Helper/News.dart';
 import 'package:origin_news/Helper/data.dart';
-import 'package:origin_news/view/articles_viewver.dart';
+//import 'package:origin_news/view/articles_viewver.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../models/Category_model.dart';
 import '../models/article_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -88,6 +89,7 @@ class _HomeState extends State<Home> {
                     ),
                     Container(
                       child: ListView.builder(
+
                           physics: ClampingScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: article.length,
@@ -171,10 +173,11 @@ class Blogtile extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(top: 10),
       child: GestureDetector(
-        onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
+        onTap: () async{
+          /*Navigator.push(context, MaterialPageRoute(builder: (context) {
             return Article_Views(url);
-          }));
+          }));*/
+          await launch(url);
         },
         child: Card(
           child: Column(
